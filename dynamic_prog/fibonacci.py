@@ -28,8 +28,12 @@ def fib_rec_memoize(num):
 def fib_itr(num):
     """fibonacci series with iterative tabulation
     Keyword Arguments:
-    num --
+    num -- the number for which fibonacci number is requestd
     """
+
+    if num in (0, 1):
+        return num
+
     num_tabl = [0] * (num + 1)
     num_tabl[1] = 1
     for indx in range(0, num):
@@ -40,15 +44,33 @@ def fib_itr(num):
     return num_tabl[num]
 
 
+def run_algo(algo_tpl, algo_func, msg):
+    """Runs the algorith iterating for each item i the input tuple
+    Keyword Arguments:
+    algo_tpl  -- tuple of algorith inputs
+    algo_func -- algorithm function
+    msg -- message to print before running algorithm
+    """
+
+    print(msg)
+    for item in algo_tpl:
+        print(f"{item}: {algo_func(item)}")
+
+    print("---------")
+
+
 def main():
     """The main function"""
-    print(fib_rec_memoize(3))
-    print(fib_rec_memoize(6))
-    print(fib_rec_memoize(7))
-    print(fib_rec_memoize(8))
-    print(fib_rec_memoize(50))
-    print(fib_itr(8))
-    print(fib_itr(50))
+    values = (0, 1, 2, 3, 8, 25, 50, 100, 300)
+
+    msg1 = "fibonacci numbers with brute force algorithm"
+    run_algo(tuple(filter(lambda x: x <= 8, values)), fib_rec_memoize, msg1)
+
+    msg2 = "fibonacci numbers with memoization algorithm"
+    run_algo(values, fib_rec_memoize, msg2)
+
+    msg3 = "fibonacci numbers with tabulation algorithm"
+    run_algo(values, fib_itr, msg3)
 
 
 if __name__ == "__main__":
