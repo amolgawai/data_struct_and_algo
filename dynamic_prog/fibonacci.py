@@ -25,7 +25,7 @@ def fib_rec_memoize(num):
     return fib_rec_memoize(num - 1) + fib_rec_memoize(num - 2)
 
 
-def fib_itr(num):
+def fib_tab(num):
     """fibonacci series with iterative tabulation
     Keyword Arguments:
     num -- the number for which fibonacci number is requestd
@@ -70,7 +70,7 @@ def main():
     run_algo(values, fib_rec_memoize, msg2)
 
     msg3 = "fibonacci numbers with tabulation algorithm"
-    run_algo(values, fib_itr, msg3)
+    run_algo(values, fib_tab, msg3)
 
 
 if __name__ == "__main__":
