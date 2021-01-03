@@ -1,6 +1,6 @@
 """Tests for Union Find"""
 import os
-from coursera_algo1.union_find import QuickFindUF
+from coursera_algo1.union_find import QuickFindUF, QuickUnionUF
 
 
 FIXTURE_DIR = os.path.join(
@@ -28,8 +28,6 @@ def get_test_input(input_f_name):
 
 
 def test_quickfind_qf():
-    """Main function for testing"""
-
     input_fl_name = os.path.join(FIXTURE_DIR, "tinyUF.txt")
     test_sz, test_unions = get_test_input(input_fl_name)
     qf_uf = QuickFindUF(test_sz)
@@ -37,6 +35,17 @@ def test_quickfind_qf():
     for xy_tpl in test_unions:
         qf_uf.union(xy_tpl[0], xy_tpl[1])
 
-    print(qf_uf)
     for test_tpl in test_unions:
         assert qf_uf.are_connected(test_tpl[0], test_tpl[1])
+
+
+def test_quickunion_qf():
+    input_f_name = os.path.join(FIXTURE_DIR, "mediumUF.txt")
+    test_sz, test_unions = get_test_input(input_f_name)
+    test_uf = QuickUnionUF(test_sz)
+
+    for xy_tpl in test_unions:
+        test_uf.union(xy_tpl[0], xy_tpl[1])
+
+    for test_tpl in test_unions:
+        assert test_uf.are_connected(test_tpl[0], test_tpl[1])
