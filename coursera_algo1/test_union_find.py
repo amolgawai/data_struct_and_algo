@@ -1,5 +1,12 @@
 """Tests for Union Find"""
-from union_find import QuickFindUF
+import os
+from coursera_algo1.union_find import QuickFindUF
+
+
+FIXTURE_DIR = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    "test_data",
+)
 
 
 def get_test_input(input_f_name):
@@ -23,7 +30,8 @@ def get_test_input(input_f_name):
 def test_quickfind_qf():
     """Main function for testing"""
 
-    test_sz, test_unions = get_test_input("test_data/tinyUF.txt")
+    input_fl_name = os.path.join(FIXTURE_DIR, "tinyUF.txt")
+    test_sz, test_unions = get_test_input(input_fl_name)
     qf_uf = QuickFindUF(test_sz)
 
     for xy_tpl in test_unions:
