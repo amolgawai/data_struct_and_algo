@@ -27,20 +27,6 @@ class QuickFindUF:
         """
         first = self.ids[id_1]
         second = self.ids[id_2]
-        for id_num in self.ids:
+        for indx, id_num in enumerate(self.ids):
             if id_num == first:
-                self.ids[id_num] = second
-
-
-def main():
-    """Main function for testing"""
-    qf_uf = QuickFindUF(10)
-    print(qf_uf)
-    print(qf_uf.are_connected(0, 5))
-    qf_uf.union(0, 5)
-    print(qf_uf.are_connected(0, 5))
-    print(qf_uf)
-
-
-if __name__ == "__main__":
-    main()
+                self.ids[indx] = second
