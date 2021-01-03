@@ -1,0 +1,3 @@
+memoization==0.3.2 \
+    --hash=sha256:6109bcfdbd6fc6c33004fcdc5d8e291c1223a7416c5dad61ec777d260f6038d2 \
+    --hash=sha256:65d19404b9acc74a764d3e584d8fb17c56bc446d386a28afb93f2247507c99cc
