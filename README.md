@@ -13,7 +13,7 @@ Practicing data structure and algorithms, mostly in python for now
   * use the requirements.txt which was generated from poetry in your favorite environment
 
 ## Tests and code coverage
-  * run `pytest` at root torun all tests
+  * run `python -m pytest` at root torun all tests
   * run `coverage run -m pyest` at the root of project to generate coverage
   * run `coverage report` to see coverage
   * run `coverage html` to generate a detailed html report that shows line coverage
