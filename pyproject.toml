@@ -17,8 +17,14 @@ flake8 = "^3.8.3"
 ipython = "^7.19.0"
 pytest = "^6.2.1"
 pytest-sugar = "^0.9.4"
-coverage = "^5.3.1"
+coverage = {version = "^5.3.1", extras = ["toml"]}
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.coverage.run]
+source = ["."]
+omit = ["*__init__*", "*test*"]
+[tool.coverage.report]
+omit = ["*__init__*", "*test*"]
