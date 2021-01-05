@@ -53,7 +53,7 @@ def permutations(lst):
     return perms
 
 
-def main():
+def main():  # pragma: no cover
     """The main testing function"""
 
     print(combinations(["a", "b", "c"]))
