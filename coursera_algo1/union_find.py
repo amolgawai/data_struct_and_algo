@@ -46,7 +46,7 @@ class QuickFindUF:
 class QuickUnionUF:
     """Quick Union Union Find implementation
 
-    The data is represented as an array as indexes as nodes.
+    The data is represented as an array of indices, indices represent nodes.
     Each node is also a leaf of a connection tree. Some nodes are root.
     The id of each node represents the root node.
     """
