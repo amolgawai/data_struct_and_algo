@@ -44,7 +44,7 @@ def fib_tab(num):
     return num_tabl[num]
 
 
-def run_algo(algo_tpl, algo_func, msg):
+def run_algo(algo_tpl, algo_func, msg):  # pragma: no cover
     """Runs the algorith iterating for each item i the input tuple
     Keyword Arguments:
     algo_tpl  -- tuple of algorith inputs
@@ -59,7 +59,7 @@ def run_algo(algo_tpl, algo_func, msg):
     print("---------")
 
 
-def main():
+def main():  # pragma: no cover
     """The main function"""
     values = (0, 1, 2, 3, 8, 25, 50, 100, 300)
 
