@@ -68,7 +68,7 @@ def grid_travel_tab(rows, colmns):
     return grid[rows][colmns]
 
 
-def run_algo(grid_size_lst, algo_func, msg):
+def run_algo(grid_size_lst, algo_func, msg):  # pragma: no cover
     """run a specific algorithm given the gid size and algorithm function
     Keyword Arguments:
     grid_size_lst -- List of grid size tuple, e.g. [(2, 3), (5, 5)]
@@ -83,7 +83,7 @@ def run_algo(grid_size_lst, algo_func, msg):
     print("-----------")
 
 
-def main():
+def main():  # pragma: no cover
     """The main function"""
     grids = [(0, 1), (1, 1), (2, 3), (5, 5), (10, 10), (18, 18), (50, 100)]
 
