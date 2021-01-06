@@ -17,6 +17,7 @@ Practicing data structure and algorithms, mostly in python for now
   * run `coverage run -m pyest` at the root of project to generate coverage
   * run `coverage report` to see coverage
   * run `coverage html` to generate a detailed html report that shows line coverage
+  * run `ptw --runner "pytest --picked --testmon"` to watch for changes and run respective tests
 
 ## Learning Resources
   * [Dynamic Programming course - freecodecamp](https://youtu.be/oBt53YbR9Kk)
