@@ -38,9 +38,10 @@ class QuickFindUF:
             return
         first = self.ids[id_1]
         second = self.ids[id_2]
-        for indx, id_num in enumerate(self.ids):
-            if id_num == first:
-                self.ids[indx] = second
+        self.ids[:] = [second if id_num == first else id_num for id_num in self.ids]
+        # for indx, id_num in enumerate(self.ids):
+        #     if id_num == first:
+        #         self.ids[indx] = second
 
 
 class QuickUnionUF:
@@ -87,3 +88,58 @@ class QuickUnionUF:
         first = self._root(id_1)
         second = self._root(id_2)
         self.ids[first] = second
+
+
+class UnionFind:
+    """The Union Find algorithm with weighted quick union and
+    path compression.
+    """
+
+    def __init__(self, size):
+        "initialises the class for storing objects"
+
+        self.ids = list(i for i in range(size))
+        self.id_sz = [1] * size  # size of the tree
+
+    def _root(self, i_d):
+        """Find the root of id
+        Keyword Arguments:
+        id -- for which root is needed
+        """
+
+        root_id = i_d
+        while root_id != self.ids[root_id]:
+            root_id = self.ids[root_id]
+        while i_d != root_id:  # change root of all to top level root
+            new_id = self.ids[i_d]
+            self.ids[i_d] = root_id
+            i_d = new_id
+
+        return root_id
+
+    def are_connected(self, id_1, id_2):
+        """Retrurns Ttue if p and q are connected
+        Keyword Arguments:
+        id_1 -- first id
+        id_2 -- second id
+        """
+        return self._root(id_1) == self._root(id_2)
+
+    def union(self, id_1, id_2):
+        """Connects (unioins) two ids
+        Keyword Arguments:
+        id_1 -- first id
+        id_2 -- second id
+        """
+
+        first = self._root(id_1)
+        second = self._root(id_2)
+        if first == second:
+            return
+
+        if self.id_sz[first] < self.id_sz[second]:
+            self.ids[first] = second
+            self.id_sz[second] += self.id_sz[first]
+        else:
+            self.ids[second] = first
+            self.id_sz[first] += self.id_sz[second]
