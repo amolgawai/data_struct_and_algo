@@ -45,6 +45,8 @@ def test_quickunion_uf(get_test_data_path):
 
 
 def test_uniofind(get_test_data_path):
+    # testing with large data takes time (~15 s), disabled for time being
+    # input_f_name = get_test_data_path("largeUF.txt")
     input_f_name = get_test_data_path("mediumUF.txt")
     test_sz, test_unions = get_test_input(input_f_name)
     test_uf = UnionFind(test_sz)
