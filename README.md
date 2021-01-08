@@ -22,4 +22,5 @@ Practicing data structure and algorithms, mostly in python for now
 ## Learning Resources
   * [Dynamic Programming course - freecodecamp](https://youtu.be/oBt53YbR9Kk)
   * [Coursera - Algorithms Part1](https://www.coursera.org/learn/algorithms-part1/home/welcome)
+  * [William Fiset - You Tube Data Structures Playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
   * [coderbyte - Algorithm in one week](https://coderbyte.com/starter-course/algorithms-and-data-structures)
