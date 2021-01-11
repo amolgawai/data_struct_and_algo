@@ -111,9 +111,7 @@ class UnionFind:
         while root_id != self.ids[root_id]:
             root_id = self.ids[root_id]
         while i_d != root_id:  # change root of all to top level root
-            new_id = self.ids[i_d]
-            self.ids[i_d] = root_id
-            i_d = new_id
+            i_d, self.ids[i_d] = self.ids[i_d], root_id
 
         return root_id
 
@@ -137,9 +135,8 @@ class UnionFind:
         if first == second:
             return
 
-        if self.id_sz[first] < self.id_sz[second]:
-            self.ids[first] = second
-            self.id_sz[second] += self.id_sz[first]
-        else:
-            self.ids[second] = first
-            self.id_sz[first] += self.id_sz[second]
+        if first > second:
+            first, second = second, first
+
+        self.ids[first] = second
+        self.id_sz[second] += self.id_sz[first]
