@@ -53,8 +53,8 @@ def how_sum_mem(target_sum, num_tpl):
     for a_num in num_tpl:
         res = how_sum_mem(target_sum - a_num, num_tpl)
         if res is not None:
-            res.append(a_num)
-            return res
+            sum_combo = res + [a_num]
+            return sum_combo
 
     return None
 
@@ -88,7 +88,7 @@ def best_sum_mem(target_sum, num_tpl):
 
     shortest_combo = None
     for a_num in num_tpl:
-        res = how_sum_mem(target_sum - a_num, num_tpl)
+        res = best_sum_mem(target_sum - a_num, num_tpl)
         if res is not None:
             sum_combo = res + [a_num]
             if not shortest_combo or len(sum_combo) < len(shortest_combo):

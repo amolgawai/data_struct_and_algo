@@ -5,6 +5,7 @@ from dynamic_prog.sum_in_array import (
     can_sum_tabl,
     how_sum_mem,
     how_sum_tabl,
+    best_sum_mem,
 )
 
 
@@ -45,8 +46,10 @@ def test_how_sum_true(sum_input_true):
     target_sums, array = sum_input_true
 
     for target_sum in target_sums:
-        assert how_sum_mem(target_sum, array) is not None
-        assert how_sum_tabl(target_sum, array) is not None
+        res_mem = how_sum_mem(target_sum, array)
+        assert sum(res_mem) == target_sum
+        res_tabl = how_sum_tabl(target_sum, array)
+        assert sum(res_tabl) == target_sum
 
 
 def test_how_sum_false(sum_input_false):
@@ -56,3 +59,14 @@ def test_how_sum_false(sum_input_false):
     for target_sum in target_sums:
         assert how_sum_mem(target_sum, array) is None
         assert how_sum_tabl(target_sum, array) is None
+
+
+def test_best_sum_true(sum_input_true):
+    """Tests positive case of how sum function"""
+    target_sums, array = sum_input_true
+
+    for target_sum in target_sums:
+        res_mem = best_sum_mem(target_sum, array)
+        assert sum(res_mem) == target_sum
+        # res_tabl = best_sum_tabl(target_sum, array)
+        # assert sum(res_tabl) == target_sum
