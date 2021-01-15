@@ -97,9 +97,29 @@ def best_sum_mem(target_sum, num_tpl):
     return shortest_combo
 
 
-def run_algo(input_tpl_lst, algo_func):  # pragma: no cover
+def best_sum_tabl(target_sum, num_tpl):
+    """Tabulation implementation of how sum"""
+
+    tbl = [None] * (target_sum + 1)
+    tbl[0] = []
+
+    for indx in range(target_sum + 1):
+        a_tbl = tbl[indx]
+        if a_tbl is not None:
+            for a_num in num_tpl:
+                if indx + a_num <= target_sum:
+                    sum_combo = a_tbl + [a_num]
+                    cur_combo = tbl[indx + a_num]
+                    if not cur_combo or len(sum_combo) < len(cur_combo):
+                        tbl[indx + a_num] = list(sum_combo)
+
+    return tbl[-1]
+
+
+def run_algo(input_tpl_lst, algo_func, msg):  # pragma: no cover
     """Runs an algorithm and prints output"""
 
+    print(msg)
     for input_tpl in input_tpl_lst:
         print(algo_func(input_tpl[0], input_tpl[1]))
 
@@ -111,11 +131,12 @@ def main():  # pragma: no cover
 
     inputs = ((7, (3, 4, 5, 7)), (7, (7, 3, 4, 5)), (300, (7, 14)))
 
-    run_algo(inputs, can_sum_mem)
-    run_algo(inputs, can_sum_tabl)
-    run_algo(inputs, how_sum_mem)
-    run_algo(inputs, how_sum_tabl)
-    run_algo(inputs, best_sum_mem)
+    run_algo(inputs, can_sum_mem, "Memoized can sum")
+    run_algo(inputs, can_sum_tabl, "Tabulation can sum")
+    run_algo(inputs, how_sum_mem, "Memoized how sum")
+    run_algo(inputs, how_sum_tabl, "Tabulation how sum")
+    run_algo(inputs, best_sum_mem, "Memoized best sum")
+    run_algo(inputs, best_sum_tabl, "Tabulation best sum")
 
 
 if __name__ == "__main__":
