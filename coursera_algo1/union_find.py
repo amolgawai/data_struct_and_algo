@@ -38,7 +38,9 @@ class QuickFindUF:
             return
         first = self.ids[id_1]
         second = self.ids[id_2]
-        self.ids[:] = [second if id_num == first else id_num for id_num in self.ids]
+        self.ids[:] = [
+            second if id_num == first else id_num for id_num in self.ids
+        ]
         # for indx, id_num in enumerate(self.ids):
         #     if id_num == first:
         #         self.ids[indx] = second
