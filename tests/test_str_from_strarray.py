@@ -27,7 +27,10 @@ def input_data_false():
 
     return (
         ("skateboard", ("bo", "rd", "ate", "t", "ska", "sk", "boar")),
-        ("eeeeeeeeeeeeeeeeeeeeef", ("e", "ee", "eee", "eeee", "eeeee", "eeeeee")),
+        (
+            "eeeeeeeeeeeeeeeeeeeeef",
+            ("e", "ee", "eee", "eeee", "eeeee", "eeeeee"),
+        ),
     )
 
 
@@ -67,8 +70,15 @@ def test_all_construct_true(input_data_true):
     """Tests for truth of all construct algorithms"""
 
     for a_data in input_data_true:
-        assert len(all_construct_mem(a_data[0], a_data[1])) == a_data[2]
-        assert len(all_construct_tabl(a_data[0], a_data[1])) == a_data[2]
+        constructs_mem = all_construct_mem(a_data[0], a_data[1])
+        assert len(constructs_mem) == a_data[2]
+        for a_construct in constructs_mem:
+            assert "".join(a_construct) == a_data[0]
+
+        constructs_tab = all_construct_tabl(a_data[0], a_data[1])
+        assert len(constructs_tab) == a_data[2]
+        for a_construct in constructs_tab:
+            assert "".join(word for word in a_construct) == a_data[0]
 
 
 def test_all_construct_false(input_data_false):

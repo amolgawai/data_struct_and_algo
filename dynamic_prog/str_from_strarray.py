@@ -47,7 +47,9 @@ def count_construct_mem(target_str, str_array):
     tot_count = 0
     for a_str in str_array:
         if target_str.startswith(a_str):
-            tot_count += count_construct_mem(target_str.split(a_str, 1)[1], str_array)
+            tot_count += count_construct_mem(
+                target_str.split(a_str, 1)[1], str_array
+            )
 
     return tot_count
 
@@ -81,7 +83,9 @@ def all_construct_mem(target_str, str_array):
     tot_ways = []
     for a_str in str_array:
         if target_str.startswith(a_str):
-            sub_ways = all_construct_mem(target_str.split(a_str, 1)[1], str_array)
+            sub_ways = all_construct_mem(
+                target_str.split(a_str, 1)[1], str_array
+            )
             if sub_ways:
                 for a_way in sub_ways:
                     tot_ways.append([a_str] + a_way)
@@ -101,7 +105,7 @@ def all_construct_tabl(target_str, str_array):
             for a_str in str_array:
                 if target_str[indx:].startswith(a_str):
                     for a_combi in tbl[indx]:
-                        tbl[indx + len(a_str)].append([a_str] + a_combi)
+                        tbl[indx + len(a_str)].append(a_combi + [a_str])
 
     return tbl[-1]
 
@@ -125,7 +129,10 @@ def main():  # pragma: no cover
         ("abcdef", ("ab", "abc", "cd", "def", "abcd")),
         ("enterapotentpot", ("a", "p", "ent", "enter", "ot", "o", "t")),
         ("skateboard", ("b0", "rd", "ate", "t", "ska", "sk", "boar")),
-        ("eeeeeeeeeeeeeeeeeeeeef", ("e", "ee", "eee", "eeee", "eeeee", "eeeeee")),
+        (
+            "eeeeeeeeeeeeeeeeeeeeef",
+            ("e", "ee", "eee", "eeee", "eeeee", "eeeeee"),
+        ),
     )
 
     run_algo(test_data, can_construct_mem, "Memoized can construct")
