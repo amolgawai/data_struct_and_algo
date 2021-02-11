@@ -37,7 +37,7 @@ def dijkstras_algo(graph_dict, start_nd, dest_nd):
             costs,
             key=lambda node: costs[node]
             if node not in processed
-            else float("inf"),
+            else infinity,
         )
 
     path = deque((dest_nd,))
