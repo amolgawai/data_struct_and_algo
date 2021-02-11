@@ -11,9 +11,11 @@ Practicing data structure and algorithms, mostly in python for now
   - run `poetry install`
 ### Alternate - use your favorite virtual environment
   * use the requirements.txt which was generated from poetry in your favorite environment
+  * use the requirements-dev.txt for adding testing and other development tools
 
 ## Tests and code coverage
-  * run `python -m pytest` at root torun all tests
+  * run `python -m pytest` at root tor un all tests
+  * run `pytest --cov` at root to run all tests and get coverage
   * run `coverage run -m pyest` at the root of project to generate coverage
   * run `coverage report` to see coverage
   * run `coverage html` to generate a detailed html report that shows line coverage
@@ -25,3 +27,4 @@ Practicing data structure and algorithms, mostly in python for now
   * [William Fiset - You Tube Data Structures Playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
   * [coderbyte - Algorithm in one week](https://coderbyte.com/starter-course/algorithms-and-data-structures)
   * [Leetcode study guide](https://leetcode.com/discuss/general-discussion/494279/comprehensive-data-structure-and-algorithm-study-guide) -> find in pdf form [here](./references/CI_DSA_study_guide.pdf)
+  * [Grokking Algorithms - Book](https://www.manning.com/books/grokking-algorithms)
