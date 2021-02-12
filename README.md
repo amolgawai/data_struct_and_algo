@@ -3,6 +3,7 @@ Practicing data structure and algorithms, mostly in python for now
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![CodeFactor](https://www.codefactor.io/repository/github/amolgawai/data_struct_and_algo/badge)](https://www.codefactor.io/repository/github/amolgawai/data_struct_and_algo)
+![](./coverage.svg)
 
 ## Environment setup
 ### Recommended - using poetry and pyenv
