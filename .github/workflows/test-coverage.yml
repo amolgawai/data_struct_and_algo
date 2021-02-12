@@ -35,4 +35,4 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --cov
-        coverage-badge -of coverage.svg
+        coverage-badge -f -o coverage.svg
