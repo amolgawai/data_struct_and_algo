@@ -22,6 +22,7 @@ def test_positive_bfs(graph_dict):
     """Tests the positive case for bfs algorithm."""
     assert bfs(graph_dict, "you", lambda x: x.endswith("m")) == "thom"
     assert bfs(graph_dict, "you", lambda x: x.endswith("y")) == "peggy"
+    assert bfs(graph_dict, "bob", lambda x: x.endswith("gy")) == "jonny"
 
 
 def test_negative_bfs(graph_dict):
