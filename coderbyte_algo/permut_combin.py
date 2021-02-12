@@ -1,4 +1,4 @@
-""" Permutations and combinations using recursion"""
+"""Calculate Permutations and combinations using recursion."""
 
 
 def combinations(lst):
@@ -18,10 +18,7 @@ def combinations(lst):
 
     first_ele = lst[0]
     combi_without_fst = combinations(lst[1:])
-
-    combi_with_first = list()
-    for a_combi in combi_without_fst:
-        combi_with_first.append(a_combi + [first_ele])
+    combi_with_first = [a_combi + [first_ele] for a_combi in combi_without_fst]
 
     return combi_without_fst + combi_with_first
 
@@ -44,11 +41,11 @@ def permutations(lst):
     first_ele = lst[0]
     perm_without_first = permutations(lst[1:])
 
-    perms = list()
-    for a_perm in perm_without_first:
-        for indx in range(len(a_perm) + 1):
-            perm = a_perm[:indx] + [first_ele] + a_perm[indx:]
-            perms.append(perm)
+    perms = [
+        a_perm[:indx] + [first_ele] + a_perm[indx:]
+        for a_perm in perm_without_first
+        for indx in range(len(a_perm) + 1)
+    ]
 
     return perms
 
