@@ -36,3 +36,8 @@ jobs:
       run: |
         pytest --cov
         coverage-badge -f -o coverage.svg
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-badge
+        path: coverage.svg
