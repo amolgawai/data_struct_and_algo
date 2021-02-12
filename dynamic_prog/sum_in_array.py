@@ -116,7 +116,7 @@ def best_sum_tabl(target_sum, num_tpl):
     return tbl[-1]
 
 
-def run_algo(input_tpl_lst, algo_func, msg):
+def run_algo(input_tpl_lst, algo_func, msg):  # pragma: no cover
     """Runs an algorithm and prints output"""
 
     print(msg)
