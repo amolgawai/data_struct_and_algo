@@ -36,8 +36,7 @@ jobs:
       run: |
         pytest --cov
         coverage-badge -f -o coverage.svg
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v2
+    - name: Commit code coverage badge
+      uses: stefanzweifel/git-auto-commit-action@v4.8.0
       with:
-        name: coverage-badge
-        path: coverage.svg
+        file_pattern: coverage.svg
