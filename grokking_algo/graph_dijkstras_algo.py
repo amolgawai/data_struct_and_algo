@@ -1,5 +1,6 @@
 """Shortest path finding of a weighted graph using Dijkstra's Algorithm."""
-from collections import deque, defaultdict
+from collections import deque
+from grokking_algo.graph_builder import build_weighted_da_graph, get_vertices
 
 
 def dijkstras_algo(graph_dict, start_nd, dest_nd):
@@ -9,11 +10,7 @@ def dijkstras_algo(graph_dict, start_nd, dest_nd):
     path.
     """
     infinity = float("inf")
-    vertices = {
-        vertx
-        for vert_dict in graph_dict.values()
-        for vertx in vert_dict.keys()
-    } | set(graph_dict.keys())
+    vertices = get_vertices(graph_dict)
     costs = {itm: infinity for itm in vertices if itm != start_nd}
     parents = {itm: None for itm in vertices if itm != start_nd}
     processed = list()
@@ -46,16 +43,6 @@ def dijkstras_algo(graph_dict, start_nd, dest_nd):
         path_nd = parents[path_nd]
         path.appendleft(path_nd)
     return costs[dest_nd], path
-
-
-def build_graph(edges):  # pragma: no cover
-    """Build a graph dictionary from the edges."""
-    graph = defaultdict(lambda: defaultdict(dict))
-
-    for v1, v2, wt in edges:
-        graph[v1][v2] = wt
-
-    return graph
 
 
 def main():  # pragma: no cover
@@ -94,7 +81,7 @@ def main():  # pragma: no cover
     )
 
     for edges in graphs:
-        graph = build_graph(edges)
+        graph = build_weighted_da_graph(edges)
         cost, path = dijkstras_algo(
             graph, edges[0][0], edges[len(edges) - 1][1]
         )

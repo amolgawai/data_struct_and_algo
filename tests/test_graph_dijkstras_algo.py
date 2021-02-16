@@ -2,12 +2,13 @@
 
 Simple tests for now until get the test data
 """
-from grokking_algo.graph_dijkstras_algo import dijkstras_algo, build_graph
+from grokking_algo.graph_builder import build_weighted_da_graph
+from grokking_algo.graph_dijkstras_algo import dijkstras_algo
 
 
 def test_dijkstras_algo():
     """Test the Dijkstra's algorithm."""
-    graph = build_graph(
+    graph = build_weighted_da_graph(
         (
             ("a", "b", 7),
             ("a", "c", 9),
