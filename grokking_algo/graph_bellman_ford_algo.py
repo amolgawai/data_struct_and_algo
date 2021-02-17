@@ -3,7 +3,11 @@
 Use this algorithm for a weighted graph with negative weight
 """
 from collections import deque
-from grokking_algo.graph_builder import build_weighted_da_graph, get_vertices
+from grokking_algo.graph_builder import (
+    build_weighted_da_graph,
+    get_vertices,
+    get_path,
+)
 
 
 class GraphNegativeCycleError(Exception):
@@ -39,12 +43,8 @@ def bellman_ford_algo(graph_dict, start_nd, dest_nd):
                 )
                 raise GraphNegativeCycleError(error_msg)
 
-    path = deque((dest_nd,))
-    path_nd = dest_nd
-    while path_nd != start_nd:
-        path_nd = parents[path_nd]
-        path.appendleft(path_nd)
-    return costs[dest_nd], path
+    path_deque = get_path(parents, start_nd, dest_nd)
+    return costs[dest_nd], path_deque
 
 
 def main():  # pragma: no cover

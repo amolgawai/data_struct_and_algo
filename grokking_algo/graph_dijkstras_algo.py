@@ -1,6 +1,10 @@
 """Shortest path finding of a weighted graph using Dijkstra's Algorithm."""
 from collections import deque
-from grokking_algo.graph_builder import build_weighted_da_graph, get_vertices
+from grokking_algo.graph_builder import (
+    build_weighted_da_graph,
+    get_vertices,
+    get_path,
+)
 
 
 def dijkstras_algo(graph_dict, start_nd, dest_nd):
@@ -37,12 +41,8 @@ def dijkstras_algo(graph_dict, start_nd, dest_nd):
             else infinity,
         )
 
-    path = deque((dest_nd,))
-    path_nd = dest_nd
-    while path_nd != start_nd:
-        path_nd = parents[path_nd]
-        path.appendleft(path_nd)
-    return costs[dest_nd], path
+    path_deque = get_path(parents, start_nd, dest_nd)
+    return costs[dest_nd], path_deque
 
 
 def main():  # pragma: no cover
