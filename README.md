@@ -32,3 +32,4 @@ Practicing data structure and algorithms, mostly in python for now
   * [Leetcode study guide](https://leetcode.com/discuss/general-discussion/494279/comprehensive-data-structure-and-algorithm-study-guide) -> find in pdf form [here](./references/CI_DSA_study_guide.pdf)
   * [Grokking Algorithms - Book](https://www.manning.com/books/grokking-algorithms)
   * [Abdul Bari - Algorithms Playlist YouTube](https://www.youtube.com/playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
+  * [Algorithms Illuminated - Books and Videos](http://www.algorithmsilluminated.org)
